@@ -395,14 +395,14 @@ def main_testing(test_image_base_dir, test_dataset, test_image_name,
         drawing_len = len(flag_list) - np.sum(flag_list)
         assert drawing_len >= 0
 
-        # print('    flag  raw\t soft\t x1\t\t y1\t\t x2\t\t y2\t\t r2\t\t s2')
+        print('    flag  raw\t soft\t x1\t\t y1\t\t x2\t\t y2\t\t r2\t\t s2')
         for i in range(strokes_raw_out.shape[0]):
             flag, x1, y1, x2, y2, r2, s2 = strokes_raw_out[i]
             win_size = window_size_out[i]
             out_format = '#%d: %d  | %.4f, %.4f, %.4f, %.4f, %.4f, %.4f, %.4f, %.4f'
             out_values = (i, flag, states_raw_out[i], clean_states_soft_out[i], x1, y1, x2, y2, r2, s2)
             out_log = out_format % out_values
-            # print(out_log)
+            print(out_log)
 
         print('Saving results ...')
         save_seq_data(sampling_dir, test_image_raw_name + '_' + str(sampling_i),
